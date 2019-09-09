@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "speed-battleship"
+    }
+  },
+  "defaultProject": "speed-battleship",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
