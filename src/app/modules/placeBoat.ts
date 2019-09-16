@@ -1,8 +1,14 @@
 import { getRandomNumber } from './getRandomNumber';
-import { IBoard } from '../interfaces/board';
-import { IBoatPart } from '../interfaces/boat-part';
+import { IFeatureBoard } from '../store/interfaces/feature-board';
+import { IBoatPart } from '../store/interfaces/boat-part';
 
-export function placeBoat( board: IBoard, boatSize: number, boatId: number, boardWidth: number, boardHeight: number ): IBoard {
+export function placeBoat(
+    board: IFeatureBoard,
+    boatSize: number,
+    boatId: number,
+    boardWidth: number,
+    boardHeight: number
+): IFeatureBoard {
     boardWidth = boardWidth - 1;  // because of 0 based arrays
     boardHeight = boardHeight - 1;
     let placed = false;
