@@ -1,4 +1,4 @@
-export interface IFeatureGameState {
+export interface IFeatureGameStatus {
     isStarted: boolean;
     isPaused: boolean;
     isEnded: boolean;

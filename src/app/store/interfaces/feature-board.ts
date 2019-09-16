@@ -1,5 +1,5 @@
 import { ISquare } from './square';
 
-export interface IBoard {
+export interface IFeatureBoard {
     squares: ISquare[];
 }

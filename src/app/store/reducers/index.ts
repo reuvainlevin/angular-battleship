@@ -4,12 +4,16 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import { AppState } from '../interfaces/app-state';
-import { featureGameStateReducer } from './feature-game-state.reducers';
+import { featureGameStateReducer } from './feature-game.reducers';
+import { featureBoardReducer } from './feature-board.reducers';
+import { featureBoardSpecsReducer } from './feature-board-specs.reducers';
 
 
 
 export const reducers: ActionReducerMap<AppState> = {
-  featureGameState: featureGameStateReducer
+  featureGameStatus: featureGameStateReducer,
+  featureBoardSpecs: featureBoardSpecsReducer,
+  featureBoard: featureBoardReducer
 };
 
 
