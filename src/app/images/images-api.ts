@@ -26,7 +26,7 @@ import a45 from './45a.jpg';
 import d45 from './45d.jpg';
 import a55 from './55a.jpg';
 import d55 from './55d.jpg';
-import boom from './boom.jpg';
+import boom from 'boom.jpg';
 import water from './water.jpg';
 
 

@@ -1,1 +1,3 @@
-<p>square works!</p>
+<h1 *ngIf="square$ | async as square" [style.backgroundImage]="'url('+image+')'">
+    {{square.row}} {{square.col}}
+</h1>
