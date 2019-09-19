@@ -1,9 +1,10 @@
+import { ISquare } from './../interfaces/square';
 import { IFeatureBoard } from '../interfaces/feature-board';
 import { createReducer, on, Action } from '@ngrx/store';
 import * as featureBoardActions from '../actions/feature-board-state.actions';
 
 export const initState: IFeatureBoard = {
-    squares: []
+    squares: { }
 };
 
 const reducer = createReducer<IFeatureBoard>(

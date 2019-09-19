@@ -2,8 +2,8 @@ import { IBoatPart } from './boat-part';
 
 export interface ISquare {
     id: number;
-    row: number;
-    col: number;
+    row: string;
+    col: string;
     imagePath?: string;
     boatPart?: IBoatPart;
 }

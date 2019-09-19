@@ -1,27 +1,27 @@
 import { getRandomNumber } from './getRandomNumber';
 import { IFeatureBoard } from '../store/interfaces/feature-board';
 import { IBoatPart } from '../store/interfaces/boat-part';
+import { IBoat } from '../store/interfaces/boat';
 
 export function placeBoat(
     board: IFeatureBoard,
-    boatSize: number,
-    boatId: number,
-    boardWidth: number,
-    boardHeight: number
+    boat: IBoat,
+    rows: number,
+    cols: number
 ): IFeatureBoard {
-    boardWidth = boardWidth - 1;  // because of 0 based arrays
-    boardHeight = boardHeight - 1;
+    rows = rows - 1;  // because of 0 based arrays
+    cols = cols - 1;
     let placed = false;
     // let fullBoatLoc = [];
     while ( !placed ) {
         const tmpBoatParts: { row: number, col: number, boatPart: IBoatPart}[] = [];
-        let randomRow = getRandomNumber( 0, boardWidth );
-        let randomCol = getRandomNumber( 0, boardHeight );
+        let randomRow = getRandomNumber( 0, rows );
+        let randomCol = getRandomNumber( 0, cols );
         const randomDir = getRandomNumber( 1, 4 );
         const boatDir = ( randomDir === 1 || randomDir === 2 ) ? 'd' : 'a';
-        let boatSpot = ( randomDir === 1 || randomDir === 3 ) ? boatSize : 1;
+        let boatSpot = ( randomDir === 1 || randomDir === 3 ) ? boat.size : 1;
 
-        for ( let i = 0; i < boatSize; i++ ) {
+        for ( let i = 0; i < boat.size; i++ ) {
             if ( i > 0 ) {
                 switch ( randomDir ) {
                     case 1: randomRow--;
@@ -39,10 +39,10 @@ export function placeBoat(
             }
             if (
                 randomRow < 0 ||
-                randomRow > boardWidth ||
+                randomRow > rows ||
                 randomCol < 0 ||
-                randomCol > boardHeight ||
-                board.squares.find( sq => sq.row === randomRow && sq.col === randomCol ).boatPart
+                randomCol > cols ||
+                board.squares[randomRow.toString() + randomCol.toString()].boatPart
             ) {
                 break;
             } else {
@@ -50,18 +50,18 @@ export function placeBoat(
                     row: randomRow,
                     col: randomCol,
                     boatPart: {
-                        boatId,
-                        boatSize,
+                        boatId: boat.id,
+                        boatSize: boat.size,
                         boatSpot,
-                        boatImagePath: ( '' + boatDir + boatSpot + boatSize ),
+                        boatImagePath: ( '' + boatDir + boatSpot + boat.size ),
                         isHit: false
                     }
                 } );
             }
         }
-        if ( tmpBoatParts.length === boatSize ) {
+        if ( tmpBoatParts.length === boat.size ) {
             tmpBoatParts.forEach( part => {
-                board.squares.find( sq => sq.row === part.row && sq.col === part.col ).boatPart = part.boatPart;
+                board.squares[part.row.toString() + part.col.toString()].boatPart = part.boatPart;
             } );
             placed = true;
             // fullBoatLoc = tmpBoatParts;

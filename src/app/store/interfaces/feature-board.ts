@@ -1,5 +1,5 @@
 import { ISquare } from './square';
 
 export interface IFeatureBoard {
-    squares: ISquare[];
+    squares: { [ id: string ]: ISquare};
 }
