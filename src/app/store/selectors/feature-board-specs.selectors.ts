@@ -11,6 +11,22 @@ export const getRowsCols$ = createSelector(
     }
 );
 
+export const getRows$ = createSelector(
+    getFeatureBoardSpecs$,
+    ( state: IFeatureBoardSpecs ) => {
+        return state.rows;
+    }
+);
+
+
+export const getCols$ = createSelector(
+    getFeatureBoardSpecs$,
+    ( state: IFeatureBoardSpecs ) => {
+        return state.cols;
+    }
+);
+
+
 export const getBoats$ = createSelector(
     getFeatureBoardSpecs$,
     ( state: IFeatureBoardSpecs ) => state.boats
