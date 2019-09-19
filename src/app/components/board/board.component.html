@@ -1,4 +1,11 @@
-<div class='row' *ngFor="let row of rows">
-    <app-sb-square *ngFor="let col of cols">
+<div class='row' *ngFor="let row of rows$ | async as rows">
+    {{row}}
+    <app-sb-square *ngFor="let col of cols$ | async as cols">
+        {{row}} {{col}}
     </app-sb-square>
 </div>
+
+<!-- <div class='row' *ngFor="let row of rowsCols$ | async as rows.rows"> -->
+    <!-- <app-sb-square *ngFor="let col of rowsCols$ | async as rows[rows]">
+    </app-sb-square> -->
+<!-- </div>        -->

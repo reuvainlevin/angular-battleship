@@ -4,8 +4,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from './store/interfaces/app-state';
-import { getBoard } from './modules/getBoard';
-import { placeBoat } from './modules/placeBoat';
 import { getFeatureBoard$ } from './store/selectors/feature-board.selectors';
 
 @Component({
@@ -25,8 +23,7 @@ export class AppComponent implements OnInit {
     width: 7,
     height: 7
   };
-  board = getBoard( this.boardSize.width, this.boardSize.height );
-
+  
   constructor(private store: Store<AppState> ) { }
 
   ngOnInit(): void {
