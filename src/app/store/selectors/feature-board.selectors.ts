@@ -7,7 +7,7 @@ export const getFeatureBoard$ = createFeatureSelector<AppState, IFeatureBoard>( 
 
 export const getSquare$ = createSelector(
     getFeatureBoard$,
-    ( state: IFeatureBoard, props: any ) => state.squares[props.row.toString() + props.col.toString()]
+    ( state: IFeatureBoard, props: any ) => state.squares[props.id]
 );
 
 

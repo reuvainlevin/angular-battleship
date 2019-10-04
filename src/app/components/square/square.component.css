@@ -10,3 +10,15 @@ h1{
     background-size: 100% 100%;
 
 }
+
+img {
+    width: 100px;
+    height: 100px;
+    /* margin-bottom: -2px; */
+}
+
+img:active{
+    width: 98px;
+    height: 98px;
+    margin: 1px;
+}

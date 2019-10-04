@@ -12,9 +12,8 @@ export function placeBoat(
     rows = rows - 1;  // because of 0 based arrays
     cols = cols - 1;
     let placed = false;
-    // let fullBoatLoc = [];
     while ( !placed ) {
-        const tmpBoatParts: { row: number, col: number, boatPart: IBoatPart}[] = [];
+        const tmpBoatParts: { row: number, col: number, boatPart: IBoatPart }[] = [];
         let randomRow = getRandomNumber( 0, rows );
         let randomCol = getRandomNumber( 0, cols );
         const randomDir = getRandomNumber( 1, 4 );
@@ -25,16 +24,16 @@ export function placeBoat(
             if ( i > 0 ) {
                 switch ( randomDir ) {
                     case 1: randomRow--;
-                            boatSpot--;
-                            break;
+                        boatSpot--;
+                        break;
                     case 2: randomRow++;
-                            boatSpot++;
-                            break;
+                        boatSpot++;
+                        break;
                     case 3: randomCol--;
-                            boatSpot--;
-                            break;
+                        boatSpot--;
+                        break;
                     case 4: randomCol++;
-                            boatSpot++;
+                        boatSpot++;
                 }
             }
             if (
@@ -42,7 +41,7 @@ export function placeBoat(
                 randomRow > rows ||
                 randomCol < 0 ||
                 randomCol > cols ||
-                board.squares[randomRow.toString() + randomCol.toString()].boatPart
+                board.squares[ randomRow.toString() + randomCol.toString() ].boatPart
             ) {
                 break;
             } else {
@@ -61,10 +60,9 @@ export function placeBoat(
         }
         if ( tmpBoatParts.length === boat.size ) {
             tmpBoatParts.forEach( part => {
-                board.squares[part.row.toString() + part.col.toString()].boatPart = part.boatPart;
+                board.squares[ part.row.toString() + part.col.toString() ].boatPart = part.boatPart;
             } );
             placed = true;
-            // fullBoatLoc = tmpBoatParts;
         }
     }
 
