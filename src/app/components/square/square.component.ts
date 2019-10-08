@@ -5,7 +5,7 @@ import { AppState } from 'src/app/store/interfaces/app-state';
 import { Observable } from 'rxjs';
 import { getSquare$ } from 'src/app/store/selectors/feature-board.selectors';
 import * as images from '../../images/images-api';
-import { tap, filter, map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { click } from 'src/app/store/actions/feature-board-state.actions';
 
 @Component( {
@@ -29,17 +29,19 @@ export class SquareComponent implements OnInit {
       select( getSquare$, { id: this.id } ),
       filter( sq => sq ? true : false )
     );
+
     this.square$ = tmpSquare$;
+
     this.image$ = tmpSquare$.pipe(
       map(
-        sq => ( sq.boatPart && sq.boatPart.isHit ) ? images[ sq.boatPart.boatImagePath ] : images[ sq.imagePath ]
+        sq => ( sq && sq.boatPart && sq.boatPart.isHit ) ? images[ sq.boatPart.boatImagePath ] : images[sq.imagePath]
       )
     );
   }
 
 
   click( square: ISquare ) {
-    this.store.dispatch( click({square}) );
+    this.store.dispatch( click( { square } ) );
   }
 
 }
