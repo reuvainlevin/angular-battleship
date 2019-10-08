@@ -9,12 +9,14 @@ import { SquareComponent } from './components/square/square.component';
 import { BoardComponent } from './components/board/board.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/effects/app.effects';
+import { GameComponent } from './components/game/game.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
-    BoardComponent
+    BoardComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
