@@ -1,12 +1,12 @@
-<button *ngIf="!(isStarted$ | async)" (click)="startGame()">
+<button *ngIf="!(isStarted$ | async)" mat-button color="primary" (click)="startGame()">
     Start Game
 </button>
-<button *ngIf="(isStarted$ | async) && !(isPaused$ | async)" (click)="pauseGame()">
+<button *ngIf="(isStarted$ | async) && !(isPaused$ | async)" mat-button color="primary" (click)="pauseGame()">
     Pause Game
 </button>
-<button *ngIf="isPaused$ | async" (click)="continueGame()">
+<button *ngIf="isPaused$ | async" mat-button color="primary" (click)="continueGame()">
     Continue Game
 </button>
-<button *ngIf="isStarted$ | async" (click)="endGame()">
+<button *ngIf="isStarted$ | async" mat-button color="primary" (click)="endGame()">
     End Game
 </button>
