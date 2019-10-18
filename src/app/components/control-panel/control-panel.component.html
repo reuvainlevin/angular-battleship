@@ -1,0 +1,12 @@
+<button *ngIf="!(isStarted$ | async)" (click)="startGame()">
+    Start Game
+</button>
+<button *ngIf="(isStarted$ | async) && !(isPaused$ | async)" (click)="pauseGame()">
+    Pause Game
+</button>
+<button *ngIf="isPaused$ | async" (click)="continueGame()">
+    Continue Game
+</button>
+<button *ngIf="isStarted$ | async" (click)="endGame()">
+    End Game
+</button>

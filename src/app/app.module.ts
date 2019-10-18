@@ -10,13 +10,15 @@ import { BoardComponent } from './components/board/board.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/effects/app.effects';
 import { GameComponent } from './components/game/game.component';
+import { ControlPanelComponent } from './components/control-panel/control-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
     BoardComponent,
-    GameComponent
+    GameComponent,
+    ControlPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,3 @@
-<button *ngIf="!(isStarted$ | async)" style="padding:10px" (click)="startGame()">
-    Start Game
-</button>
-<button *ngIf="(isStarted$ | async) && !(isPaused$ | async)" style="padding:10px" (click)="pauseGame()">
-    Pause Game
-</button>
-<button *ngIf="isPaused$ | async" style="padding:10px" (click)="continueGame()">
-    Continue Game
-</button>
-<button *ngIf="isStarted$ | async" style="padding:10px" (click)="endGame()">
-    End Game
-</button>
+<app-sb-control-panel></app-sb-control-panel>
 
 <app-sb-board></app-sb-board>
