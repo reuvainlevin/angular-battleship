@@ -1,4 +1,4 @@
-<div class='row' *ngFor="let row of rows$ | async as rows">
+<div class="row" *ngFor="let row of rows$ | async as rows">
     <app-sb-square *ngFor="let col of cols$ | async as cols" [row]="row" [col]="col" [id]="('' + row + col)">
     </app-sb-square>
 </div>

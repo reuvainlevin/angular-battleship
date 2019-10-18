@@ -22,3 +22,35 @@ img:active{
     height: 98px;
     margin: 1px;
 }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+     img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+     img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+     img {
+        width: 110px;
+        height: 110px;
+    }
+}
