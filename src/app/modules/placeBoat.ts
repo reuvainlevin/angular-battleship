@@ -23,16 +23,20 @@ export function placeBoat(
         for ( let i = 0; i < boat.size; i++ ) {
             if ( i > 0 ) {
                 switch ( randomDir ) {
-                    case 1: randomRow--;
+                    case 1:
+                        randomRow--;
                         boatSpot--;
                         break;
-                    case 2: randomRow++;
+                    case 2:
+                        randomRow++;
                         boatSpot++;
                         break;
-                    case 3: randomCol--;
+                    case 3:
+                        randomCol--;
                         boatSpot--;
                         break;
-                    case 4: randomCol++;
+                    case 4:
+                        randomCol++;
                         boatSpot++;
                 }
             }

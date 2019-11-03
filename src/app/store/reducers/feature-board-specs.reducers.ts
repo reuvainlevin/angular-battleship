@@ -1,5 +1,4 @@
-import { IFeatureBoard } from '../interfaces/feature-board';
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, Action } from '@ngrx/store';
 import { IFeatureBoardSpecs } from '../interfaces/feature-board-specs';
 
 export const initState: IFeatureBoardSpecs = {
