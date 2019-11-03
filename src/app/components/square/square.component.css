@@ -12,45 +12,50 @@ h1{
 }
 
 img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     /* margin-bottom: -2px; */
 }
 
 img:active{
-    width: 98px;
-    height: 98px;
-    margin: 1px;
+    opacity: .8;
+}
+
+@media (min-width: 376px) { 
+    img {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
     img {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
     }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
      img {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
      img {
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: 70px;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
      img {
-        width: 110px;
-        height: 110px;
+        width: 80px;
+        height: 80px;
     }
 }

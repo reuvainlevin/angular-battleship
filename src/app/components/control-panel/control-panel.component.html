@@ -1,41 +1,16 @@
-<!-- <button *ngIf="!(isStarted$ | async)" mat-button color="primary" (click)="startGame()">
-    Start Game
-</button>
-<button *ngIf="(isStarted$ | async) && !(isPaused$ | async)" mat-button color="primary" (click)="pauseGame()">
-    Pause Game
-</button>
-<button *ngIf="isPaused$ | async" mat-button color="primary" (click)="continueGame()">
-    Continue Game
-</button>
-<button *ngIf="isStarted$ | async" mat-button color="primary" (click)="endGame()">
-    End Game
-</button> -->
-
 <div class="row">
-
-    <div class="col-md" >
-        <button [disabled]="(isStarted$ | async)" mat-button color="primary" (click)="startGame()">
-            Start Game
+    <div class="sb-border">
+        <button mat-raised-button color="primary">
+            <mat-icon matTooltip="Play" *ngIf="!(isStarted$ | async) && !(isPaused$ | async)" (click)="startGame()">
+                play_arrow</mat-icon>
+            <mat-icon matTooltip="Pause" *ngIf="(isStarted$ | async) && !(isPaused$ | async)" (click)="pauseGame()">
+                pause</mat-icon>
+            <mat-icon matTooltip="Continue" *ngIf="(isPaused$ | async)" (click)="continueGame()">
+                play_arrow</mat-icon>
         </button>
-    </div>
 
-    <div class="col-md">
-        <button [disabled]="!(isStarted$ | async) && (isPaused$ | async)" mat-button color="primary" (click)="pauseGame()">
-            Pause Game
-        </button>
-    </div>
-
-    <div class="col-md">
-        <button [disabled]="!(isPaused$ | async)" mat-button color="primary" (click)="continueGame()">
-            Continue Game
-        </button>
-    </div>
-
-    <div class="col-md">
-        <button [disabled]="!(isStarted$ | async)" mat-button color="primary" (click)="endGame()">
-            End Game
+        <button [disabled]="!(isStarted$ | async)" mat-raised-button color="primary" (click)="endGame();startGame()">
+            <mat-icon matTooltip="Restart">replay</mat-icon>
         </button>
     </div>
 </div>
-
-

@@ -14,8 +14,10 @@ import { ControlPanelComponent } from './components/control-panel/control-panel.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
-@NgModule({
+@NgModule( {
   declarations: [
     AppComponent,
     SquareComponent,
@@ -26,19 +28,21 @@ import { MatGridListModule } from '@angular/material/grid-list';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, {
+    StoreModule.forRoot( reducers, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true
       }
-    }),
+    } ),
     EffectsModule.forRoot( [ AppEffects ] ),
     BrowserAnimationsModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
-})
+  bootstrap: [ AppComponent ]
+} )
 export class AppModule { }
