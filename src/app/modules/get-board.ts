@@ -8,7 +8,9 @@ export function getBoard( rows: number, cols: number ): { [ id: string ]: ISquar
                 id: '' + row + col,
                 row,
                 col,
-                imagePath: 'water'
+                imagePath: 'water',
+                isBombed: false,
+                bombImagePath: 'boom'
             };
         }
     }

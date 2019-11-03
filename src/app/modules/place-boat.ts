@@ -1,4 +1,4 @@
-import { getRandomNumber } from './getRandomNumber';
+import { getRandomNumber } from './get-random-number';
 import { IFeatureBoard } from '../store/interfaces/feature-board';
 import { IBoatPart } from '../store/interfaces/boat-part';
 import { IBoat } from '../store/interfaces/boat';

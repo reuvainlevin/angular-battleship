@@ -1,4 +1,4 @@
-import { placeBoat } from './placeBoat';
+import { placeBoat } from './place-boat';
 import { IFeatureBoard } from '../store/interfaces/feature-board';
 import { IFeatureBoardSpecs } from '../store/interfaces/feature-board-specs';
 
