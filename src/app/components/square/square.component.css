@@ -17,9 +17,9 @@ img {
     /* margin-bottom: -2px; */
 }
 
-img:active{
+/* img:active{
     opacity: .8;
-}
+} */
 
 @media (min-width: 376px) { 
     img {
@@ -28,34 +28,39 @@ img:active{
     }
 }
 
+button {
+    padding: 0;
+    margin: 0;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
     img {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
     }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
      img {
-        width: 60px;
-        height: 60px;
+        width: 58px;
+        height: 58px;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
      img {
-        width: 70px;
-        height: 70px;
+        width: 6px;
+        height: 68px;
     }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
      img {
-        width: 80px;
-        height: 80px;
+        width: 78px;
+        height: 78px;
     }
 }

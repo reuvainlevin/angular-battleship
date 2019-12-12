@@ -1,3 +1,5 @@
+import { GameState } from './../../store/enums/game-states';
+import { getGameState$ } from 'src/app/store/selectors/feature-game.selectors';
 import { ISquare } from './../../store/interfaces/square';
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Store, select } from '@ngrx/store';
@@ -21,8 +23,11 @@ export class SquareComponent implements OnInit {
 
   square$: Observable<ISquare>;
   image$: Observable<string>;
+  gameState$: Observable<GameState>;
 
-  constructor( private store: Store<AppState> ) { }
+  GameState = GameState;
+
+  constructor ( private store: Store<AppState> ) { }
 
   ngOnInit() {
     const tmpSquare$ = this.store.pipe(
@@ -32,13 +37,29 @@ export class SquareComponent implements OnInit {
 
     this.square$ = tmpSquare$;
 
+    this.setImage( tmpSquare$ );
+
+    this.gameState$ = this.store.pipe( select( getGameState$ ) );
+
+  }
+
+  setImage( tmpSquare$: Observable<ISquare> ) {
     this.image$ = tmpSquare$.pipe(
       map(
-        sq => ( sq && sq.boatPart && sq.boatPart.isHit ) ? images[ sq.boatPart.boatImagePath ] : images[sq.imagePath]
+        sq => {
+          if ( sq && sq.boatPart && sq.boatPart.isHit ) {
+            return images[ sq.boatPart.boatImagePath ];
+          } else {
+            if ( sq && sq.isBombed ) {
+              return images[ sq.bombImagePath ];
+            } else {
+              return images[ sq.imagePath ];
+            }
+          }
+        }
       )
     );
   }
-
 
   click( square: ISquare ) {
     this.store.dispatch( click( { square } ) );

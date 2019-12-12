@@ -1,1 +1,4 @@
-<img *ngIf="square$ | async as square" [src]="(image$ | async)" (click)="click(square)">
+<button *ngIf="square$ | async as square" mat-button [disabled]="!((gameState$ | async) === GameState.IS_IN_PLAY)"
+    (click)="click(square)">
+    <img [src]="(image$ | async)">
+</button>
