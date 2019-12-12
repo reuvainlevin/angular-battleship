@@ -1,6 +1,6 @@
 import { ISquare } from '../store/interfaces/square';
 
-export function getBoard( rows: number, cols: number ): { [ id: string ]: ISquare } {
+export const getBoard = ( rows: number, cols: number ): { [ id: string ]: ISquare } => {
     const squares = {};
     for ( let row = 0; row < rows; row++ ) {
         for ( let col = 0; col < cols; col++ ) {
@@ -16,4 +16,5 @@ export function getBoard( rows: number, cols: number ): { [ id: string ]: ISquar
     }
 
     return squares;
-}
+};
+

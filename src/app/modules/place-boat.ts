@@ -3,12 +3,12 @@ import { IFeatureBoard } from '../store/interfaces/feature-board';
 import { IBoatPart } from '../store/interfaces/boat-part';
 import { IBoat } from '../store/interfaces/boat';
 
-export function placeBoat(
+export const placeBoat = (
     board: IFeatureBoard,
     boat: IBoat,
     rows: number,
     cols: number
-): IFeatureBoard {
+): IFeatureBoard => {
     rows = rows - 1;  // because of 0 based arrays
     cols = cols - 1;
     let placed = false;
@@ -71,4 +71,5 @@ export function placeBoat(
     }
 
     return board;
-}
+};
+
