@@ -5,19 +5,24 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export const getFeatureGameStatus$ = createFeatureSelector<AppState, IFeatureGameStatus>( 'featureGameStatus' );
 
-export const getGameStarted$ = createSelector(
-    getFeatureGameStatus$,
-    (state: IFeatureGameStatus) => state.isStarted
-);
+// export const getGameStarted$ = createSelector(
+//     getFeatureGameStatus$,
+//     (state: IFeatureGameStatus) => state.isStarted
+// );
 
-export const getGamePaused$ = createSelector(
-    getFeatureGameStatus$,
-    ( state: IFeatureGameStatus ) => state.isPaused
-);
+// export const getGamePaused$ = createSelector(
+//     getFeatureGameStatus$,
+//     ( state: IFeatureGameStatus ) => state.isPaused
+// );
 
-export const getGameEnded$ = createSelector(
+// export const getGameEnded$ = createSelector(
+//     getFeatureGameStatus$,
+//     ( state: IFeatureGameStatus ) => state.isEnded
+// );
+
+export const getGameState$ = createSelector(
     getFeatureGameStatus$,
-    ( state: IFeatureGameStatus ) => state.isEnded
+    ( state: IFeatureGameStatus ) => state.gameState
 );
 
 

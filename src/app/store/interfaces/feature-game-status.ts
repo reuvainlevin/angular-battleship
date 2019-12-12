@@ -1,5 +1,4 @@
+import { GameState } from './../enums/game-states';
 export interface IFeatureGameStatus {
-    isStarted: boolean;
-    isPaused: boolean;
-    isEnded: boolean;
+    gameState: GameState;
 }
