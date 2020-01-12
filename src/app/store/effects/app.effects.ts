@@ -1,4 +1,4 @@
-import { prepareBoard } from 'src/app/store/actions/feature-game-state.actions';
+import { prepareBoard, startGame, pauseGame, continueGame, endGame } from 'src/app/store/actions/feature-game-state.actions';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store, select } from '@ngrx/store';
@@ -28,14 +28,13 @@ export class AppEffects {
 
   startGame$ = createEffect(
     () => this.actions$.pipe(
-      ofType(GameStateActionTypes.StartGame),
+      ofType(startGame),
       switchMap(
         () => this.store.pipe(
           // TODO
           // this should be ina reducer function, this should be reconstructed to not need an effect
           select(getFeatureBoardSpecs$),
-          tap(t => this.startBombing()),
-          switchMap(specs => { console.log('in the sart game effect'); return of(setBoard({ specs })) })
+          map(specs => setBoard({ specs }))
         )
       )
     )
@@ -54,31 +53,37 @@ export class AppEffects {
   );
 
 
-
-
-  pauseBomb$ = createEffect(
+  // TODO
+  // move boming code to it's own effect class
+  startBomb$ = createEffect(
     () => this.actions$.pipe(
-      ofType(GameStateActionTypes.PauseGame),
-      tap(t => clearInterval(this.shooter))
+      ofType(
+        startGame,
+        continueGame
+      ),
+      tap(t => this.startBombing())
     ),
     { dispatch: false }
   );
 
-  continueBomb$ = createEffect(
+  pauseBomb$ = createEffect(
     () => this.actions$.pipe(
-      ofType(GameStateActionTypes.ContinueGame),
-      tap(t => this.startBombing())
+      ofType(
+        pauseGame,
+        endGame
+      ),
+      tap(t => clearInterval(this.shooter))
     ),
     { dispatch: false }
   );
 
   shooter: NodeJS.Timer;
 
-  startBombing(): void {
+  startBombing (): void {
     this.shooter = setInterval(() => this.bomb(), 1000);
   }
 
-  bomb(): void {
+  bomb (): void {
     const randomRow = getRandomNumber(0, 6).toString();
     const randomCol = getRandomNumber(0, 6).toString();
 
