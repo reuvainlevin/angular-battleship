@@ -9,12 +9,12 @@ export enum BombingActionTypes {
 
 export const bomb = createAction(
     BombingActionTypes.Bomb,
-    props<{ id: number }>()
+    props<{ id: string }>()
 );
 
 export const clearBomb = createAction(
     BombingActionTypes.ClearBomb,
-    props<{ id: number }>()
+    props<{ id: string }>()
 );
 
 
