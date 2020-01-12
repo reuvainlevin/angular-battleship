@@ -6,5 +6,7 @@ export interface ISquare {
     col: string;
     imagePath?: string;
     boatPart?: IBoatPart;
+    isBombed: boolean;
+    bombImagePath: string;
 }
 
