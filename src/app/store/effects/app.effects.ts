@@ -1,18 +1,15 @@
-import { BombingActionTypes, clearBomb } from './../actions/bombing.actions';
-import { ISquare } from './../interfaces/square';
+import { prepareBoard } from 'src/app/store/actions/feature-game-state.actions';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store, select, Action } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from '../interfaces/app-state';
 import { GameStateActionTypes } from '../actions/feature-game-state.actions';
 import { getFeatureBoardSpecs$ } from '../selectors/feature-board-specs.selectors';
 import { switchMap, map, tap } from 'rxjs/operators';
-import { setBoard, FeatureBoardActionTypes, hit, blank, buildBoard } from '../actions/feature-board-state.actions';
-import { bomb } from '../actions/bombing.actions';
-import { getGameState$ } from '../selectors/feature-game.selectors';
-import { interval } from 'rxjs/internal/observable/interval';
+import { setBoard, hit, blank, buildBoard, click } from '../actions/feature-board-state.actions';
+import { bomb, clearBomb } from '../actions/bombing.actions';
 import { of } from 'rxjs/internal/observable/of';
-import { GameState } from '../enums/game-states';
+import { getRandomNumber } from 'src/app/modules/get-random-number';
 
 @Injectable()
 export class AppEffects {
@@ -46,6 +43,7 @@ export class AppEffects {
 
   click$ = createEffect(
     () => this.actions$.pipe(
+      ofType(click),
       switchMap(a => {
         // TODO
         // this should be ina reducer function, we don't need an effect for this
@@ -81,10 +79,15 @@ export class AppEffects {
   }
 
   bomb(): void {
-    this.store.dispatch(bomb({ id: 10 }));
+    const randomRow = getRandomNumber(0, 6).toString();
+    const randomCol = getRandomNumber(0, 6).toString();
+
+    const id = randomRow + randomCol;
+
+    this.store.dispatch(bomb({ id }));
 
     setTimeout(() => {
-      this.store.dispatch(clearBomb({ id: 10 }));
+      this.store.dispatch(clearBomb({ id }));
     }, 300);
   }
 
