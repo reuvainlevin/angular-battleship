@@ -32,7 +32,7 @@ export class SquareComponent implements OnInit {
   ngOnInit() {
     const tmpSquare$ = this.store.pipe(
       select( getSquare$, { id: this.id } ),
-      filter( sq => sq ? true : false )
+      filter( sq => !!sq)
     );
 
     this.square$ = tmpSquare$;
