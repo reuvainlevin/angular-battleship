@@ -9,22 +9,22 @@ import { toArray } from 'src/app/modules/toArray';
 @Component({
   selector: 'app-sb-board',
   templateUrl: './board.component.html',
-  styleUrls: [ './board.component.css' ],
+  styleUrls: ['./board.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoardComponent implements OnInit {
   rows$: Observable<number[]>;
   cols$: Observable<number[]>;
-  constructor( private store: Store<AppState> ) { }
+  constructor (private store: Store<AppState>) { }
 
   ngOnInit() {
     this.rows$ = this.store.pipe(
-      select( getRows$ ),
-      map( rows => toArray(rows) )
-      );
+      select(getRows$),
+      map(rows => toArray(rows))
+    );
     this.cols$ = this.store.pipe(
-      select( getCols$ ),
-      map( cols =>  toArray(cols) )
+      select(getCols$),
+      map(cols => toArray(cols))
     );
   }
 

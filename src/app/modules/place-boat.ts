@@ -12,17 +12,17 @@ export const placeBoat = (
     rows = rows - 1;  // because of 0 based arrays
     cols = cols - 1;
     let placed = false;
-    while ( !placed ) {
+    while (!placed) {
         const tmpBoatParts: { row: number, col: number, boatPart: IBoatPart }[] = [];
-        let randomRow = getRandomNumber( 0, rows );
-        let randomCol = getRandomNumber( 0, cols );
-        const randomDir = getRandomNumber( 1, 4 );
-        const boatDir = ( randomDir === 1 || randomDir === 2 ) ? 'd' : 'a';
-        let boatSpot = ( randomDir === 1 || randomDir === 3 ) ? boat.size : 1;
+        let randomRow = getRandomNumber(0, rows);
+        let randomCol = getRandomNumber(0, cols);
+        const randomDir = getRandomNumber(1, 4);
+        const boatDir = (randomDir === 1 || randomDir === 2) ? 'd' : 'a';
+        let boatSpot = (randomDir === 1 || randomDir === 3) ? boat.size : 1;
 
-        for ( let i = 0; i < boat.size; i++ ) {
-            if ( i > 0 ) {
-                switch ( randomDir ) {
+        for (let i = 0; i < boat.size; i++) {
+            if (i > 0) {
+                switch (randomDir) {
                     case 1:
                         randomRow--;
                         boatSpot--;
@@ -45,27 +45,27 @@ export const placeBoat = (
                 randomRow > rows ||
                 randomCol < 0 ||
                 randomCol > cols ||
-                board.squares[ randomRow.toString() + randomCol.toString() ].boatPart
+                board.squares[randomRow.toString() + randomCol.toString()].boatPart
             ) {
                 break;
             } else {
-                tmpBoatParts.push( {
+                tmpBoatParts.push({
                     row: randomRow,
                     col: randomCol,
                     boatPart: {
                         boatId: boat.id,
                         boatSize: boat.size,
                         boatSpot,
-                        boatImagePath: ( '' + boatDir + boatSpot + boat.size ),
+                        boatImagePath: ('' + boatDir + boatSpot + boat.size),
                         isHit: false
                     }
-                } );
+                });
             }
         }
-        if ( tmpBoatParts.length === boat.size ) {
-            tmpBoatParts.forEach( part => {
-                board.squares[ part.row.toString() + part.col.toString() ].boatPart = part.boatPart;
-            } );
+        if (tmpBoatParts.length === boat.size) {
+            tmpBoatParts.forEach(part => {
+                board.squares[part.row.toString() + part.col.toString()].boatPart = part.boatPart;
+            });
             placed = true;
         }
     }
