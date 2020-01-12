@@ -19,11 +19,11 @@ export class AppEffects {
 
   prepareBoard$ = createEffect(
     () => this.actions$.pipe(
-      ofType(GameStateActionTypes.PrepareBoard),
+      ofType(prepareBoard),
       switchMap(
-        () => this.store.pipe(
+        (t) => this.store.pipe(
           select(getFeatureBoardSpecs$),
-          switchMap(specs => { console.log('in the sart prepare effect'); return of(buildBoard({ specs })) })
+          map(specs => buildBoard({ specs }))
         )
       )
     )
@@ -46,8 +46,7 @@ export class AppEffects {
 
   click$ = createEffect(
     () => this.actions$.pipe(
-      ofType(FeatureBoardActionTypes.Click),
-      switchMap((a: { square: ISquare, type: string }) => {
+      switchMap(a => {
         // TODO
         // this should be ina reducer function, we don't need an effect for this
         return ((a.square && a.square.boatPart)) ? of(hit({ square: a.square })) : of(blank());
