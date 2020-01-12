@@ -14,11 +14,26 @@ export const initState: IFeatureBoard = {
 
 const reducer = createReducer<IFeatureBoard>(
     initState,
-    on(featureBoardActions.buildBoard, (state, { specs }) => respondToActionBuildBoard(specs)),
-    on(featureBoardActions.setBoard, (state, { specs }) => respondToActionSetBoard(specs)),
-    on(featureBoardActions.hit, (state, { square }) => respondToActionHit(state, square)),
-    on(bombingActions.bomb, (state, { id }) => respondToActionBomb(state, id)),
-    on(bombingActions.clearBomb, (state, { id }) => respondToActionClearBomb(state, id))
+    on(
+        featureBoardActions.buildBoard,
+        (state, { specs }) => respondToActionBuildBoard(specs)
+    ),
+    on(
+        featureBoardActions.setBoard,
+        (state, { specs }) => respondToActionSetBoard(specs)
+    ),
+    on(
+        featureBoardActions.hit,
+        (state, { square }) => respondToActionHit(state, square)
+    ),
+    on(
+        bombingActions.bomb,
+        (state, { id }) => respondToActionBomb(state, id)
+    ),
+    on(
+        bombingActions.clearBomb,
+        (state, { id }) => respondToActionClearBomb(state, id)
+    )
 );
 
 export function featureBoardReducer(state: IFeatureBoard | undefined, action: Action) {
