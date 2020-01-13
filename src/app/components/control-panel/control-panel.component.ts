@@ -1,10 +1,10 @@
-import { GameState } from './../../store/enums/game-states';
+import { AppState } from './../../store/app-state/interfaces/app-state';
+import { GameState } from '../../store/feature-game-state/enums/game-states';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-import { getGameState$ } from 'src/app/store/selectors/feature-game.selectors';
-import { AppState } from 'src/app/store/interfaces/app-state';
-import { startGame, pauseGame, continueGame, endGame } from 'src/app/store/feature-board-specs/actions/feature-game-state.actions';
+import { getGameState$ } from 'src/app/store/feature-game-state/selectors/feature-game.selectors';
+import { startGame, pauseGame, continueGame, endGame } from 'src/app/store/feature-game-state/actions/feature-game-state.actions';
 
 @Component({
   selector: 'app-sb-control-panel',
@@ -19,23 +19,23 @@ export class ControlPanelComponent implements OnInit {
 
   constructor (private store: Store<AppState>) { }
 
-  ngOnInit() {
+  ngOnInit () {
     this.gameState$ = this.store.pipe(select(getGameState$));
   }
 
-  startGame(): void {
+  startGame (): void {
     this.store.dispatch(startGame());
   }
 
-  pauseGame(): void {
+  pauseGame (): void {
     this.store.dispatch(pauseGame());
   }
 
-  continueGame(): void {
+  continueGame (): void {
     this.store.dispatch(continueGame());
   }
 
-  endGame(): void {
+  endGame (): void {
     this.store.dispatch(endGame());
   }
 

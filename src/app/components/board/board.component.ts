@@ -1,7 +1,7 @@
+import { AppState } from 'src/app/store/app-state/interfaces/app-state';
 import { getCols$, getRows$ } from '../../store/feature-board-specs/selectors/feature-board-specs.selectors';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/store/interfaces/app-state';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { toArray } from 'src/app/modules/toArray';
@@ -17,7 +17,7 @@ export class BoardComponent implements OnInit {
   cols$: Observable<number[]>;
   constructor (private store: Store<AppState>) { }
 
-  ngOnInit() {
+  ngOnInit () {
     this.rows$ = this.store.pipe(
       select(getRows$),
       map(rows => toArray(rows))

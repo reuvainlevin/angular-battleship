@@ -1,8 +1,7 @@
+import { AppState } from './../../store/app-state/interfaces/app-state';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/store/interfaces/app-state';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { prepareBoard } from 'src/app/store/feature-board-specs/actions/feature-game-state.actions';
-import { getFeatureBoard$ } from 'src/app/store/selectors/feature-board.selectors';
+import { prepareBoard } from 'src/app/store/feature-game-state/actions/feature-game-state.actions';
 
 @Component({
   selector: 'app-sb-game',
@@ -14,7 +13,7 @@ export class GameComponent implements OnInit {
 
   constructor (private store: Store<AppState>) { }
 
-  ngOnInit() {
+  ngOnInit () {
     this.store.dispatch(prepareBoard());
   }
 }

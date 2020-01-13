@@ -1,7 +1,7 @@
 import { getRandomNumber } from './get-random-number';
-import { IFeatureBoard } from '../store/interfaces/feature-board';
-import { IBoatPart } from '../store/interfaces/boat-part';
-import { IBoat } from '../store/interfaces/boat';
+import { IFeatureBoard } from '../store/feature-board/interfaces/feature-board';
+import { IBoatPart } from '../store/feature-board/interfaces/boat-part';
+import { IBoat } from '../store/feature-board/interfaces/boat';
 
 export const placeBoat = (
     board: IFeatureBoard,

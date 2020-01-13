@@ -1,7 +1,6 @@
 import { IFeatureBoard } from '../interfaces/feature-board';
 import { createReducer, on, Action } from '@ngrx/store';
 import * as featureBoardActions from '../actions/feature-board-state.actions';
-import * as bombingActions from '../actions/bombing.actions';
 import { respondToActionBuildBoard } from 'src/app/modules/respond-to-action-BuildBoard';
 import { respondToActionSetBoard } from 'src/app/modules/respon-to-action-SetBoard';
 import { respondToActionHit } from 'src/app/modules/respond-to-action-Hit';
@@ -27,16 +26,16 @@ const reducer = createReducer<IFeatureBoard>(
         (state, { square }) => respondToActionHit(state, square)
     ),
     on(
-        bombingActions.bomb,
+        featureBoardActions.bomb,
         (state, { id }) => respondToActionBomb(state, id)
     ),
     on(
-        bombingActions.clearBomb,
+        featureBoardActions.clearBomb,
         (state, { id }) => respondToActionClearBomb(state, id)
     )
 );
 
-export function featureBoardReducer(state: IFeatureBoard | undefined, action: Action) {
+export function featureBoardReducer (state: IFeatureBoard | undefined, action: Action) {
     return reducer(state, action);
 }
 

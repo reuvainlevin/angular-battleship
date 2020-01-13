@@ -1,4 +1,4 @@
-import { IFeatureBoard } from '../store/interfaces/feature-board';
+import { IFeatureBoard } from '../store/feature-board/interfaces/feature-board';
 
 export const respondToActionBomb = (
     state: IFeatureBoard,

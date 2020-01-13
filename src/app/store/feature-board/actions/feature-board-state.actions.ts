@@ -1,14 +1,15 @@
-import { IFeatureBoard } from '../interfaces/feature-board';
 import { createAction, props } from '@ngrx/store';
 import { ISquare } from '../interfaces/square';
-import { IFeatureBoardSpecs } from '../feature-board-specs/interfaces/feature-board-specs';
+import { IFeatureBoardSpecs } from '../../feature-board-specs/interfaces/feature-board-specs';
 
 export enum FeatureBoardActionTypes {
     BuildBoard = '[Feature Board] Build board',
     SetBoard = '[Feature Board] Set board',
     Click = '[Feature Board] Click',
     Hit = '[Feature Board] Hit',
-    Blank = '[Feature Board] Blank'
+    Blank = '[Feature Board] Blank',
+    Bomb = '[Feature Board] Bomb',
+    ClearBomb = '[Feature Board] Clear Bomb'
 }
 
 export const buildBoard = createAction(
@@ -34,6 +35,16 @@ export const hit = createAction(
 
 export const blank = createAction(
     FeatureBoardActionTypes.Blank
+);
+
+export const bomb = createAction(
+    FeatureBoardActionTypes.Bomb,
+    props<{ id: string }>()
+);
+
+export const clearBomb = createAction(
+    FeatureBoardActionTypes.ClearBomb,
+    props<{ id: string }>()
 );
 
 

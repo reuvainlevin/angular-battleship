@@ -3,10 +3,10 @@ import {
   MetaReducer,
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
-import { AppState } from '../interfaces/app-state';
-import { featureGameStateReducer } from './feature-game.reducers';
-import { featureBoardReducer } from './feature-board.reducers';
+import { featureGameStateReducer } from '../feature-game-state/reducers/feature-game.reducers';
+import { featureBoardReducer } from '../feature-board/reducers/feature-board.reducers';
 import { featureBoardSpecsReducer } from '../feature-board-specs/reducers/feature-board-specs.reducers';
+import { AppState } from './interfaces/app-state';
 
 
 
