@@ -1,10 +1,10 @@
-import { prepareBoard, startGame, pauseGame, continueGame, endGame } from 'src/app/store/actions/feature-game-state.actions';
+import { prepareBoard, startGame, pauseGame, continueGame, endGame } from 'src/app/store/feature-board-specs/actions/feature-game-state.actions';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../interfaces/app-state';
-import { GameStateActionTypes } from '../actions/feature-game-state.actions';
-import { getFeatureBoardSpecs$ } from '../selectors/feature-board-specs.selectors';
+import { GameStateActionTypes } from '../feature-board-specs/actions/feature-game-state.actions';
+import { getFeatureBoardSpecs$ } from '../feature-board-specs/selectors/feature-board-specs.selectors';
 import { switchMap, map, tap } from 'rxjs/operators';
 import { setBoard, hit, blank, buildBoard, click } from '../actions/feature-board-state.actions';
 import { bomb, clearBomb } from '../actions/bombing.actions';

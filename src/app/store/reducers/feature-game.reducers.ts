@@ -1,7 +1,7 @@
 import { GameState } from './../enums/game-states';
 import { IFeatureGameStatus } from '../interfaces/feature-game-status';
 import { createReducer, on, Action } from '@ngrx/store';
-import * as gameStateActions from '../actions/feature-game-state.actions';
+import * as gameStateActions from '../feature-board-specs/actions/feature-game-state.actions';
 
 export const initState: IFeatureGameStatus = {
     gameState: GameState.IS_NOT_STARTED

@@ -3,7 +3,7 @@ import { AppState } from '../interfaces/app-state';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 
-export const getFeatureGameStatus$ = createFeatureSelector<AppState, IFeatureGameStatus>( 'featureGameStatus' );
+export const getFeatureGameStatus$ = createFeatureSelector<AppState, IFeatureGameStatus>('featureGameStatus');
 
 // export const getGameStarted$ = createSelector(
 //     getFeatureGameStatus$,
@@ -22,7 +22,7 @@ export const getFeatureGameStatus$ = createFeatureSelector<AppState, IFeatureGam
 
 export const getGameState$ = createSelector(
     getFeatureGameStatus$,
-    ( state: IFeatureGameStatus ) => state.gameState
+    (state: IFeatureGameStatus) => state.gameState
 );
 
 

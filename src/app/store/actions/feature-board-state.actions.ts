@@ -1,7 +1,7 @@
 import { IFeatureBoard } from '../interfaces/feature-board';
 import { createAction, props } from '@ngrx/store';
 import { ISquare } from '../interfaces/square';
-import { IFeatureBoardSpecs } from '../interfaces/feature-board-specs';
+import { IFeatureBoardSpecs } from '../feature-board-specs/interfaces/feature-board-specs';
 
 export enum FeatureBoardActionTypes {
     BuildBoard = '[Feature Board] Build board',

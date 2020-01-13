@@ -1,7 +1,7 @@
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/store/interfaces/app-state';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { prepareBoard } from 'src/app/store/actions/feature-game-state.actions';
+import { prepareBoard } from 'src/app/store/feature-board-specs/actions/feature-game-state.actions';
 import { getFeatureBoard$ } from 'src/app/store/selectors/feature-board.selectors';
 
 @Component({

@@ -1,4 +1,4 @@
-import { IBoat } from './boat';
+import { IBoat } from '../../interfaces/boat';
 
 export interface IFeatureBoardSpecs {
     rows: number;

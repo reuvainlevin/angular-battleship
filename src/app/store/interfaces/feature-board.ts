@@ -1,5 +1,5 @@
 import { ISquare } from './square';
-import { IFeatureBoardSpecs } from './feature-board-specs';
+import { IFeatureBoardSpecs } from '../feature-board-specs/interfaces/feature-board-specs';
 
 export interface IFeatureBoard  {
     squares: { [ id: string ]: ISquare };

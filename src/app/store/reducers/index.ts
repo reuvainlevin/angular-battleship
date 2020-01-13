@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment';
 import { AppState } from '../interfaces/app-state';
 import { featureGameStateReducer } from './feature-game.reducers';
 import { featureBoardReducer } from './feature-board.reducers';
-import { featureBoardSpecsReducer } from './feature-board-specs.reducers';
+import { featureBoardSpecsReducer } from '../feature-board-specs/reducers/feature-board-specs.reducers';
 
 
 

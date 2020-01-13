@@ -1,4 +1,4 @@
-import { IFeatureBoardSpecs } from '../store/interfaces/feature-board-specs';
+import { IFeatureBoardSpecs } from '../store/feature-board-specs/interfaces/feature-board-specs';
 import { IFeatureBoard } from '../store/interfaces/feature-board';
 import { getBoard } from './get-board';
 import { fillBoard } from './fill-board';

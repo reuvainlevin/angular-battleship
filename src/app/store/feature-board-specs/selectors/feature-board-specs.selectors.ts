@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { AppState } from '../interfaces/app-state';
+import { AppState } from '../../interfaces/app-state';
 import { IFeatureBoardSpecs } from '../interfaces/feature-board-specs';
 
 export const getFeatureBoardSpecs$ = createFeatureSelector<AppState, IFeatureBoardSpecs>( 'featureBoardSpecs' );

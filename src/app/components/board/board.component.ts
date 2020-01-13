@@ -1,4 +1,4 @@
-import { getCols$, getRows$ } from './../../store/selectors/feature-board-specs.selectors';
+import { getCols$, getRows$ } from '../../store/feature-board-specs/selectors/feature-board-specs.selectors';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/store/interfaces/app-state';
